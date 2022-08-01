@@ -125,5 +125,6 @@ class Purchase(models.Model):
     amount = models.PositiveIntegerField(default=1, verbose_name='Количество', )
 
     class Meta:
+        ordering = ('-pk',)
         verbose_name = 'Сделка'
         verbose_name_plural = 'Сделки'
