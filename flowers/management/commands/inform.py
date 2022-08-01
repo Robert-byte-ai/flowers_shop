@@ -15,4 +15,3 @@ class Command(BaseCommand):
             for i in purchases
         }
         return json.dumps(result)
-
