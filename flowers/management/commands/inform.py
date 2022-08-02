@@ -7,7 +7,7 @@ from flowers.models import Purchase
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
-        purchases = Purchase.objects.select_related('ad', 'customer').all()
+        purchases = Purchase.objects.select_related('ad', 'customer', 'ad__seller__user', 'customer__user').all()
         result = {
             i.ad.seller.user.username:
                 {'customers': list({j.customer.user.username for j in purchases if j.ad.seller == i.ad.seller}),
